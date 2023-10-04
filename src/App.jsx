@@ -2,11 +2,20 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/global.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Layout, Login, Register } from "./components";
+import { empty, login, register } from "./data/constants/routes";
+
+const router = createBrowserRouter([
+  { path: empty, element: <Layout /> },
+  { path: login, element: <Login /> },
+  { path: register, element: <Register /> },
+]);
 
 function App() {
   return (
     <>
-      <h1>Fresh Cart</h1>
+      <RouterProvider router={router} />
     </>
   );
 }
