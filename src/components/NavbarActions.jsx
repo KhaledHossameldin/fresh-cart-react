@@ -24,13 +24,7 @@ function NavbarActions() {
   return (
     <>
       <li className="nav-item">
-        <button
-          className="nav-link"
-          onClick={() => {
-            logout();
-            navigate(loginRoute);
-          }}
-        >
+        <button className="nav-link" onClick={() => logout()}>
           Logout
         </button>
       </li>
