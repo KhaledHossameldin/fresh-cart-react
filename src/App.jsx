@@ -3,24 +3,35 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/global.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Layout, Login, Register } from "./components";
+import { ForgetPassword, Layout, Login, Register } from "./components";
 import {
-  empty,
-  forgetPassword,
-  login,
-  register,
+  emptyRoute,
+  forgetPasswordRoute,
+  loginRoute,
+  registerRoute,
 } from "./data/constants/routes";
-import ForgetPassword from "./components/ForgetPassword";
+import { QueryClient, QueryClientProvider } from "react-query";
+import AuthProvider from "./context/auth";
+import ProtectedRoute from "./utils/ProtectedRoute";
+
+const client = new QueryClient();
 
 const router = createBrowserRouter([
   {
-    path: empty,
+    path: emptyRoute,
     element: <Layout />,
     children: [
-      { path: login, element: <Login /> },
-      { path: register, element: <Register /> },
-      { path: forgetPassword, element: <ForgetPassword /> },
-      { path: empty, element: <h1>Home</h1> },
+      { path: loginRoute, element: <Login /> },
+      { path: registerRoute, element: <Register /> },
+      { path: forgetPasswordRoute, element: <ForgetPassword /> },
+      {
+        path: emptyRoute,
+        element: (
+          <ProtectedRoute>
+            <h1>Home</h1>
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
 ]);
@@ -28,7 +39,11 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={client}>
+        <AuthProvider>
+          <RouterProvider router={router} />
+        </AuthProvider>
+      </QueryClientProvider>
     </>
   );
 }

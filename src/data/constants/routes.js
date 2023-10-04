@@ -3,4 +3,9 @@ const login = "/login";
 const register = "/register";
 const forgetPassword = "/forget-password";
 
-export { empty, login, register, forgetPassword };
+export {
+  empty as emptyRoute,
+  login as loginRoute,
+  register as registerRoute,
+  forgetPassword as forgetPasswordRoute,
+};

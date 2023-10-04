@@ -7,4 +7,4 @@ const password = Yup.string()
   .required("Must enter a password")
   .min(6, "Must be at least 6 characters");
 
-export { email, password };
+export { email as emailValidator, password as passwordValidator };
