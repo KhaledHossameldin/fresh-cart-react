@@ -49,3 +49,12 @@ a:hover {
 .bg-main-light {
   background-color: var(--light-color) !important;
 }
+
+.hover-main:hover {
+  color: var(--main-color);
+  transition: 0.5s color;
+  -webkit-transition: 0.5s color;
+  -moz-transition: 0.5s color;
+  -ms-transition: 0.5s color;
+  -o-transition: 0.5s color;
+}

@@ -4,7 +4,13 @@ import "./assets/global.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Layout, Login, Register } from "./components";
-import { empty, login, register } from "./data/constants/routes";
+import {
+  empty,
+  forgetPassword,
+  login,
+  register,
+} from "./data/constants/routes";
+import ForgetPassword from "./components/ForgetPassword";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +19,7 @@ const router = createBrowserRouter([
     children: [
       { path: login, element: <Login /> },
       { path: register, element: <Register /> },
+      { path: forgetPassword, element: <ForgetPassword /> },
       { path: empty, element: <h1>Home</h1> },
     ],
   },
