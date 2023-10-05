@@ -1,18 +1,13 @@
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { authContext } from "../context/auth";
+import { useMutation } from "react-query";
 import { useFormik } from "formik";
-import React, { useContext } from "react";
 import { object } from "yup";
 import { emailValidator, passwordValidator } from "../utils/validators";
-import ErrorLabel from "./ErrorLabel";
-import { Link, useNavigate } from "react-router-dom";
-import { emptyRoute, forgetPasswordRoute } from "../data/constants/routes";
-import { useMutation } from "react-query";
-import axios from "axios";
-import { loginUrl } from "../data/constants/network";
-import { authContext } from "../context/auth";
-import { FallingLines } from "react-loader-spinner";
-import { mainColor } from "../data/constants/colors";
-import { Toaster } from "../../node_modules/react-hot-toast/src/components/toaster";
-import toast from "../../node_modules/react-hot-toast/src/index";
+import { Toaster } from "react-hot-toast";
+import { ErrorLabel } from "../components";
+import { forgetPasswordRoute } from "../data/constants/routes";
 
 function Login() {
   const navigate = useNavigate();

@@ -9,7 +9,7 @@ import {
   phoneValidator,
   rePasswordValidator,
 } from "../utils/validators";
-import ErrorLabel from "./ErrorLabel";
+import ErrorLabel from "../components/ErrorLabel";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "react-query";
 import axios from "axios";
@@ -49,7 +49,7 @@ function Register() {
     <div className="container my-5 py-5">
       <Toaster />
       <h2 className="fw-bold">Register</h2>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} noValidate>
         <div className="my-3">
           <label htmlFor="name">Name :</label>
           <input
@@ -125,19 +125,19 @@ function Register() {
               isTouched={formik.touched.rePassword ?? false}
             />
           </div>
-          <div className="d-flex justify-content-end">
-            {isLoading ? (
-              <FallingLines
-                color={mainColor}
-                width="50"
-                ariaLabel="falling-lines-loading"
-              />
-            ) : (
-              <button type="submit" className="btn btn-success">
-                Register
-              </button>
-            )}
-          </div>
+        </div>
+        <div className="text-end">
+          {isLoading ? (
+            <FallingLines
+              color={mainColor}
+              width="50"
+              ariaLabel="falling-lines-loading"
+            />
+          ) : (
+            <button type="submit" className="btn btn-success">
+              Register
+            </button>
+          )}
         </div>
       </form>
     </div>
