@@ -11,8 +11,8 @@ import { loginUrl } from "../data/constants/network";
 import { authContext } from "../context/auth";
 import { FallingLines } from "react-loader-spinner";
 import { mainColor } from "../data/constants/colors";
-import { Toaster } from '../../node_modules/react-hot-toast/src/components/toaster';
-import toast from '../../node_modules/react-hot-toast/src/index';
+import { Toaster } from "../../node_modules/react-hot-toast/src/components/toaster";
+import toast from "../../node_modules/react-hot-toast/src/index";
 
 function Login() {
   const navigate = useNavigate();
@@ -43,11 +43,11 @@ function Login() {
       <h2 className="fw-bold">Login</h2>
       <form onSubmit={formik.handleSubmit} noValidate>
         <div className="my-3">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Email :</label>
           <input
-            type="text"
+            type="email"
+            name="email"
             className="form-control"
-            id="email"
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -55,15 +55,13 @@ function Login() {
           <ErrorLabel
             error={formik.errors.email}
             isTouched={formik.touched.email ?? false}
-            target={"Email"}
           />
         </div>
         <div className="my-3">
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password :</label>
           <input
             type="password"
             name="password"
-            id="password"
             className="form-control mt-1"
             value={formik.values.password}
             onChange={formik.handleChange}
@@ -72,7 +70,6 @@ function Login() {
           <ErrorLabel
             error={formik.errors.password}
             isTouched={formik.touched.password ?? false}
-            target={"Password"}
           />
         </div>
         <div className="d-flex justify-content-between">
