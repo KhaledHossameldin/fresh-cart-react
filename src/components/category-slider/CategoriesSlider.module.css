@@ -1,0 +1,5 @@
+.category-image {
+    height: 15rem;
+    width: 100%;
+    object-fit: cover;
+}

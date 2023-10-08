@@ -4,6 +4,7 @@ const register = `${baseUrl}/api/v1/auth/signup`;
 const forgetPassword = `${baseUrl}/api/v1/auth/forgotPasswords`;
 const verifyCode = `${baseUrl}/api/v1/auth/verifyResetCode`;
 const resetPassword = `${baseUrl}/api/v1/auth/resetPassword`;
+const categories = `${baseUrl}/api/v1/categories`;
 
 export {
   login as loginUrl,
@@ -11,4 +12,5 @@ export {
   forgetPassword as forgetPasswordUrl,
   verifyCode as verifyCodeUrl,
   resetPassword as resetPasswordUrl,
+  categories as categoriesUrl,
 };
