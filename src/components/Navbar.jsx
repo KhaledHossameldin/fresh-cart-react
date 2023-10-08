@@ -1,13 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { emptyRoute } from "../data/constants/routes";
 import { logo } from "../assets/images";
 import NavbarActions from "./NavbarActions";
+import NavbarRoutes from "./NavbarRoutes";
 
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container">
+      <div className="container justify-content-between">
         <Link to={emptyRoute}>
           <img src={logo} alt="fresh cart logo" />
         </Link>
@@ -22,8 +23,15 @@ function Navbar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbar-routes">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+        <div
+          className="collapse navbar-collapse justify-content-between"
+          id="navbar-routes"
+        >
+          <span></span>
+          <ul className="navbar-nav mb-2 mb-lg-0 align-items-center">
+            <NavbarRoutes />
+          </ul>
+          <ul className="navbar-nav mb-2 mb-lg-0 align-items-center">
             <NavbarActions />
           </ul>
         </div>

@@ -4,12 +4,17 @@ import "./assets/global.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import {
+  brandsRoute,
+  cartRoute,
+  categoriesRoute,
   emptyRoute,
   forgetPasswordRoute,
   loginRoute,
+  productsRoute,
   registerRoute,
   resetPasswordRoute,
   verifyCodeRoute,
+  wishlistRoute,
 } from "./data/constants/routes";
 import { QueryClient, QueryClientProvider } from "react-query";
 import AuthProvider from "./context/auth";
@@ -42,6 +47,46 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <Home />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: cartRoute,
+        element: (
+          <ProtectedRoute>
+            <h1>Cart</h1>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: wishlistRoute,
+        element: (
+          <ProtectedRoute>
+            <h1>Wishlist</h1>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: productsRoute,
+        element: (
+          <ProtectedRoute>
+            <h1>Products</h1>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: categoriesRoute,
+        element: (
+          <ProtectedRoute>
+            <h1>Categories</h1>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: brandsRoute,
+        element: (
+          <ProtectedRoute>
+            <h1>Brands</h1>
           </ProtectedRoute>
         ),
       },
