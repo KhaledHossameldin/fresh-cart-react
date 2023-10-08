@@ -4,10 +4,14 @@ import { authContext } from "../context/auth";
 import { useMutation } from "react-query";
 import { useFormik } from "formik";
 import { object } from "yup";
-import { emailValidator, passwordValidator } from "../utils/validators";
-import { Toaster } from "react-hot-toast";
+import { emailSchema, passwordSchema } from "../utils/validators";
+import toast, { Toaster } from "react-hot-toast";
 import { ErrorLabel } from "../components";
-import { forgetPasswordRoute } from "../data/constants/routes";
+import { emptyRoute, forgetPasswordRoute } from "../data/constants/routes";
+import { FallingLines } from "react-loader-spinner";
+import { mainColor } from "../data/constants/colors";
+import axios from "axios";
+import { loginUrl } from "../data/constants/network";
 
 function Login() {
   const navigate = useNavigate();
@@ -26,8 +30,8 @@ function Login() {
   const formik = useFormik({
     initialValues: { email: "", password: "" },
     validationSchema: object({
-      email: emailValidator,
-      password: passwordValidator,
+      email: emailSchema,
+      password: passwordSchema,
     }),
     onSubmit: (values) => mutate(values),
   });
@@ -40,10 +44,10 @@ function Login() {
         <div className="my-3">
           <label htmlFor="email">Email :</label>
           <input
+            id="email"
             type="email"
             name="email"
             className="form-control"
-            value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
@@ -55,10 +59,10 @@ function Login() {
         <div className="my-3">
           <label htmlFor="password">Password :</label>
           <input
+            id="password"
             type="password"
             name="password"
             className="form-control mt-1"
-            value={formik.values.password}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />

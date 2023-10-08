@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import React from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { object } from "yup";
-import { emailValidator } from "../utils/validators";
+import { emailSchema } from "../utils/validators";
 import { ErrorLabel } from "../components";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "react-query";
@@ -23,7 +23,7 @@ function ForgetPassword() {
   );
   const formik = useFormik({
     initialValues: { email: "" },
-    validationSchema: object({ email: emailValidator }),
+    validationSchema: object({ email: emailSchema }),
     onSubmit: (values) => mutate(values),
   });
 
@@ -39,7 +39,6 @@ function ForgetPassword() {
             className="form-control"
             id="floating-email"
             placeholder="Email"
-            value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />

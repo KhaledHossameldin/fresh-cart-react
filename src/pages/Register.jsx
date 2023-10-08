@@ -3,11 +3,11 @@ import React from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { object } from "yup";
 import {
-  emailValidator,
-  nameValidator,
-  passwordValidator,
-  phoneValidator,
-  rePasswordValidator,
+  emailSchema,
+  nameSchema,
+  passwordSchema,
+  phoneSchema,
+  rePasswordSchema,
 } from "../utils/validators";
 import ErrorLabel from "../components/ErrorLabel";
 import { useNavigate } from "react-router-dom";
@@ -15,8 +15,8 @@ import { useMutation } from "react-query";
 import axios from "axios";
 import { registerUrl } from "../data/constants/network";
 import { loginRoute } from "../data/constants/routes";
-import { FallingLines } from "react-loader-spinner";
 import { mainColor } from "../data/constants/colors";
+import { FallingLines } from "react-loader-spinner";
 
 function Register() {
   const navigate = useNavigate();
@@ -36,11 +36,11 @@ function Register() {
       phone: "",
     },
     validationSchema: object({
-      name: nameValidator,
-      email: emailValidator,
-      phone: phoneValidator,
-      password: passwordValidator,
-      rePassword: rePasswordValidator,
+      name: nameSchema,
+      email: emailSchema,
+      phone: phoneSchema,
+      password: passwordSchema,
+      rePassword: rePasswordSchema,
     }),
     onSubmit: (values) => mutate(values),
   });
@@ -53,10 +53,10 @@ function Register() {
         <div className="my-3">
           <label htmlFor="name">Name :</label>
           <input
+            id="name"
             type="text"
             name="name"
             className="form-control"
-            value={formik.values.name}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
@@ -68,10 +68,10 @@ function Register() {
         <div className="my-3">
           <label htmlFor="email">Email :</label>
           <input
+            id="email"
             type="email"
             name="email"
             className="form-control"
-            value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
@@ -81,12 +81,12 @@ function Register() {
           />
         </div>
         <div className="my-3">
-          <label htmlFor="email">Phone :</label>
+          <label htmlFor="phone">Phone :</label>
           <input
+            id="phone"
             type="tel"
             name="phone"
             className="form-control"
-            value={formik.values.phone}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
@@ -97,10 +97,10 @@ function Register() {
           <div className="my-3">
             <label htmlFor="password">Password :</label>
             <input
+              id="password"
               type="password"
               name="password"
               className="form-control mt-1"
-              value={formik.values.password}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
@@ -111,12 +111,12 @@ function Register() {
             />
           </div>
           <div className="my-3">
-            <label htmlFor="password">Confirm Password :</label>
+            <label htmlFor="rePassword">Confirm Password :</label>
             <input
+              id="rePassword"
               type="password"
               name="rePassword"
               className="form-control mt-1"
-              value={formik.values.rePassword}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
