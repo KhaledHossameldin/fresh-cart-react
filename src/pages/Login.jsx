@@ -1,18 +1,17 @@
-import { useFormik } from "formik";
-import React, { useContext } from "react";
-import { object } from "yup";
-import { emailValidator, passwordValidator } from "../utils/validators";
-import ErrorLabel from "./ErrorLabel";
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { emptyRoute, forgetPasswordRoute } from "../data/constants/routes";
-import { useMutation } from "react-query";
-import axios from "axios";
-import { loginUrl } from "../data/constants/network";
 import { authContext } from "../context/auth";
+import { useMutation } from "react-query";
+import { useFormik } from "formik";
+import { object } from "yup";
+import { emailSchema, passwordSchema } from "../utils/validators";
+import toast, { Toaster } from "react-hot-toast";
+import { ErrorLabel } from "../components";
+import { emptyRoute, forgetPasswordRoute } from "../data/constants/routes";
 import { FallingLines } from "react-loader-spinner";
 import { mainColor } from "../data/constants/colors";
-import { Toaster } from "../../node_modules/react-hot-toast/src/components/toaster";
-import toast from "../../node_modules/react-hot-toast/src/index";
+import axios from "axios";
+import { loginUrl } from "../data/constants/network";
 
 function Login() {
   const navigate = useNavigate();
@@ -31,24 +30,23 @@ function Login() {
   const formik = useFormik({
     initialValues: { email: "", password: "" },
     validationSchema: object({
-      email: emailValidator,
-      password: passwordValidator,
+      email: emailSchema,
+      password: passwordSchema,
     }),
     onSubmit: (values) => mutate(values),
   });
 
   return (
     <div className="container my-5 py-5">
-      <Toaster />
       <h2 className="fw-bold">Login</h2>
       <form onSubmit={formik.handleSubmit} noValidate>
         <div className="my-3">
           <label htmlFor="email">Email :</label>
           <input
+            id="email"
             type="email"
             name="email"
             className="form-control"
-            value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
@@ -60,10 +58,10 @@ function Login() {
         <div className="my-3">
           <label htmlFor="password">Password :</label>
           <input
+            id="password"
             type="password"
             name="password"
             className="form-control mt-1"
-            value={formik.values.password}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />

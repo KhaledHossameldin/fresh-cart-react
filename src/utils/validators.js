@@ -13,11 +13,15 @@ const password = Yup.string()
 const rePassword = Yup.string()
   .required("Must enter the password")
   .oneOf([Yup.ref("password")], "Must be equal to password");
+const verifyCode = Yup.string()
+  .required("Must enter a verification code")
+  .length(6, "Must enter a complete verification code");
 
 export {
-  name as nameValidator,
-  email as emailValidator,
-  phone as phoneValidator,
-  password as passwordValidator,
-  rePassword as rePasswordValidator,
+  name as nameSchema,
+  email as emailSchema,
+  phone as phoneSchema,
+  password as passwordSchema,
+  rePassword as rePasswordSchema,
+  verifyCode as verifyCodeSchema,
 };
