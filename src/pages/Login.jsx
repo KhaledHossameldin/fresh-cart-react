@@ -38,7 +38,6 @@ function Login() {
 
   return (
     <div className="container my-5 py-5">
-      <Toaster />
       <h2 className="fw-bold">Login</h2>
       <form onSubmit={formik.handleSubmit} noValidate>
         <div className="my-3">

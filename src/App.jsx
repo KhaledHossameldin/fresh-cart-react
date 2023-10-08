@@ -22,6 +22,7 @@ import {
   VerifyCode,
 } from "./pages";
 import { Layout } from "./components";
+import { Toaster } from "react-hot-toast";
 
 const client = new QueryClient();
 
@@ -55,6 +56,8 @@ function App() {
           <RouterProvider router={router} />
         </AuthProvider>
       </QueryClientProvider>
+
+      <Toaster />
     </>
   );
 }

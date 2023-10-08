@@ -30,7 +30,6 @@ function VerifyCode() {
 
   return (
     <div className="container my-5 py-5">
-      <Toaster />
       <h2 className="fw-bold">We have sent you a verification code</h2>
       <h2>Please enter the sent code</h2>
       <form onSubmit={formik.handleSubmit} noValidate>
