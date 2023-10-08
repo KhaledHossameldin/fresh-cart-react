@@ -1,0 +1,17 @@
+:root {
+  --slider-image-height: 30rem;
+}
+
+.slider-image {
+  height: var(--slider-image-height);
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.side-image {
+  height: calc(var(--slider-image-height) / 2);
+  object-fit: cover;
+  width: 100%;
+  object-position: right;
+}

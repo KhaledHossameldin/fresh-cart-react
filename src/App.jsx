@@ -23,6 +23,7 @@ import {
 } from "./pages";
 import { Layout } from "./components";
 import { Toaster } from "react-hot-toast";
+import Home from "./pages/Home";
 
 const client = new QueryClient();
 
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
         path: emptyRoute,
         element: (
           <ProtectedRoute>
-            <h1>Home</h1>
+            <Home />
           </ProtectedRoute>
         ),
       },
