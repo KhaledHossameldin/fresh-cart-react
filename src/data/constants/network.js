@@ -5,6 +5,7 @@ const forgetPassword = `${baseUrl}/api/v1/auth/forgotPasswords`;
 const verifyCode = `${baseUrl}/api/v1/auth/verifyResetCode`;
 const resetPassword = `${baseUrl}/api/v1/auth/resetPassword`;
 const categories = `${baseUrl}/api/v1/categories`;
+const products = `${baseUrl}/api/v1/products`;
 
 export {
   login as loginUrl,
@@ -13,4 +14,5 @@ export {
   verifyCode as verifyCodeUrl,
   resetPassword as resetPasswordUrl,
   categories as categoriesUrl,
+  products as productsUrl,
 };

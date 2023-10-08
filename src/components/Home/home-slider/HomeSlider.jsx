@@ -6,7 +6,7 @@ import {
   sliderImage1,
   sliderImage2,
   sliderImage3,
-} from "../../assets/images";
+} from "../../../assets/images";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -16,7 +16,7 @@ function HomeSlider() {
   console.log(styles);
   return (
     <section className="row g-0">
-      <div className="col-8">
+      <div className="col-md-8">
         <div>
           <Slider autoplay dots arrows={false}>
             <img src={sliderImage1} alt="" className={styles["slider-image"]} />
@@ -25,7 +25,7 @@ function HomeSlider() {
           </Slider>
         </div>
       </div>
-      <div className="col-4">
+      <div className="col-md-4">
         <div className="row g-0">
           <div className="col-12">
             <div>
