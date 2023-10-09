@@ -26,7 +26,7 @@ function NavbarActions() {
       <li className="nav-item me-3 cursor-pointer">
         <div className="position-relative">
           <i className="fa-solid fa-cart-shopping fa-lg"></i>
-          <span class="position-absolute top-0 lead-0 translate-middle badge rounded-pill bg-danger p-1">
+          <span className="position-absolute top-0 lead-0 translate-middle badge rounded-pill bg-danger p-1">
             9+
           </span>
         </div>

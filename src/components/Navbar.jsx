@@ -7,6 +7,7 @@ import NavbarRoutes from "./NavbarRoutes";
 
 function Navbar() {
   return (
+    // TODO: add fixed-top
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container justify-content-between">
         <Link to={emptyRoute}>

@@ -30,7 +30,7 @@ function CategoriesSlider() {
     return (
       <section>
         <p className="text-danger my-5 text-center fw-bold">
-          <i class="fa-solid fa-triangle-exclamation me-1"></i>
+          <i className="fa-solid fa-triangle-exclamation me-1"></i>
           {error.response.data.message}
         </p>
       </section>

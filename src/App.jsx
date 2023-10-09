@@ -10,6 +10,7 @@ import {
   emptyRoute,
   forgetPasswordRoute,
   loginRoute,
+  productDetailsRoute,
   productsRoute,
   registerRoute,
   resetPasswordRoute,
@@ -29,6 +30,7 @@ import {
 import { Layout } from "./components";
 import { Toaster } from "react-hot-toast";
 import Home from "./pages/Home";
+import ProductDetails from "./pages/ProductDetails";
 
 const client = new QueryClient();
 
@@ -87,6 +89,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <h1>Brands</h1>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: `${productDetailsRoute}/:id`,
+        element: (
+          <ProtectedRoute>
+            <ProductDetails />
           </ProtectedRoute>
         ),
       },

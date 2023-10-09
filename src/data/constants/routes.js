@@ -9,6 +9,7 @@ const wishlist = "/wishlist";
 const products = "/products";
 const categories = "/categories";
 const brands = "/brands";
+const productDetails = "/product-details";
 
 export {
   empty as emptyRoute,
@@ -22,4 +23,5 @@ export {
   products as productsRoute,
   categories as categoriesRoute,
   brands as brandsRoute,
+  productDetails as productDetailsRoute,
 };
