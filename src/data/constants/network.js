@@ -6,6 +6,8 @@ const verifyCode = `${baseUrl}/api/v1/auth/verifyResetCode`;
 const resetPassword = `${baseUrl}/api/v1/auth/resetPassword`;
 const categories = `${baseUrl}/api/v1/categories`;
 const products = `${baseUrl}/api/v1/products`;
+const cart = `${baseUrl}/api/v1/cart`;
+
 const productDetails = (id) => `${baseUrl}/api/v1/products/${id}`;
 
 export {
@@ -16,5 +18,6 @@ export {
   resetPassword as resetPasswordUrl,
   categories as categoriesUrl,
   products as productsUrl,
+  cart as cartUrl,
   productDetails as productDetailsUrl,
 };

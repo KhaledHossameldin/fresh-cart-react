@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { blogImg1 } from "../assets/images";
 import Slider from "react-slick";
 import axios from "axios";
 import { productDetailsUrl } from "../data/constants/network";
-import { useQuery } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import { FallingLines } from "react-loader-spinner";
 import { mainColor } from "../data/constants/colors";
+import { cartContext } from "../context/cart";
+import toast from "react-hot-toast";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -15,6 +17,15 @@ function ProductDetails() {
     error,
     data: response,
   } = useQuery("product-details", () => axios.get(productDetailsUrl(id)));
+  const { addProduct } = useContext(cartContext);
+
+  const { mutate: add, isLoading: isAdding } = useMutation(
+    (id) => addProduct(id),
+    {
+      onSuccess: (data) => toast.success(data.message),
+      onError: (error) => toast.error(error.response.data.message),
+    }
+  );
 
   if (isLoading) {
     return (
@@ -38,8 +49,6 @@ function ProductDetails() {
       </div>
     );
   }
-
-  console.log(response.data.data);
 
   return (
     <div className="min-vh-100 d-flex justify-content-center align-items-center">
@@ -66,10 +75,23 @@ function ProductDetails() {
                 </div>
               </div>
               <div className="d-flex align-items-center gap-5">
-                <button className="flex-grow-1 btn bg-main text-white">
-                  + ADD
-                </button>
-                <i className="fa-solid fa-heart"></i>
+                <div className="flex-grow-1 d-flex justify-content-center">
+                  {isAdding ? (
+                    <FallingLines
+                      color={mainColor}
+                      width="50"
+                      ariaLabel="falling-lines-loading"
+                    />
+                  ) : (
+                    <button
+                      className="flex-grow-1 btn bg-main text-white"
+                      onClick={() => add(response.data.data.id)}
+                    >
+                      + ADD
+                    </button>
+                  )}
+                </div>
+                <i className="fa-solid fa-heart fa-2xl cursor-pointer"></i>
               </div>
             </div>
           </div>

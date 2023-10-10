@@ -2,7 +2,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/global.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createHashRouter } from "react-router-dom";
 import {
   brandsRoute,
   cartRoute,
@@ -21,6 +21,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import AuthProvider from "./context/auth";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import {
+  Cart,
   ForgetPassword,
   Login,
   Register,
@@ -31,10 +32,11 @@ import { Layout } from "./components";
 import { Toaster } from "react-hot-toast";
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
+import CartProvider from "./context/cart";
 
-const client = new QueryClient();
+const client = new QueryClient({});
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: emptyRoute,
     element: <Layout />,
@@ -56,7 +58,7 @@ const router = createBrowserRouter([
         path: cartRoute,
         element: (
           <ProtectedRoute>
-            <h1>Cart</h1>
+            <Cart />
           </ProtectedRoute>
         ),
       },
@@ -109,7 +111,9 @@ function App() {
     <>
       <QueryClientProvider client={client}>
         <AuthProvider>
-          <RouterProvider router={router} />
+          <CartProvider>
+            <RouterProvider router={router} />
+          </CartProvider>
         </AuthProvider>
       </QueryClientProvider>
 

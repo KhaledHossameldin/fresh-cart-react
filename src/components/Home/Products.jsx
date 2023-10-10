@@ -1,11 +1,13 @@
 import axios from "axios";
-import React from "react";
-import { useQuery } from "react-query";
+import React, { useContext } from "react";
+import { useMutation, useQuery } from "react-query";
 import { productsUrl } from "../../data/constants/network";
 import { FallingLines } from "react-loader-spinner";
 import { mainColor } from "../../data/constants/colors";
 import { Link } from "react-router-dom";
 import { productDetailsRoute } from "../../data/constants/routes";
+import { cartContext } from "../../context/cart";
+import toast from "react-hot-toast";
 
 function Products() {
   const {
@@ -13,6 +15,16 @@ function Products() {
     error,
     data: response,
   } = useQuery("products", () => axios.get(productsUrl));
+
+  const { addProduct } = useContext(cartContext);
+
+  const { mutate: add, isLoading: isAdding } = useMutation(
+    (id) => addProduct(id),
+    {
+      onSuccess: (data) => toast.success(data.message),
+      onError: (error) => toast.error(error.response.data.message),
+    }
+  );
 
   if (isLoading) {
     return (
@@ -54,13 +66,16 @@ function Products() {
                     {product.ratingsAverage}
                   </div>
                 </div>
-                <div className="d-flex align-items-center gap-4">
-                  <button className="flex-grow-1 btn bg-main text-white">
-                    + ADD
-                  </button>
-                  <i className="fa-solid fa-heart"></i>
-                </div>
               </Link>
+              <div className="d-flex align-items-center gap-4">
+                <button
+                  className="flex-grow-1 btn bg-main text-white"
+                  onClick={() => add(product.id)}
+                >
+                  + ADD
+                </button>
+                <i className="fa-solid fa-heart cursor-pointer"></i>
+              </div>
             </div>
           </div>
         ))}
