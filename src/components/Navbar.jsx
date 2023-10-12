@@ -7,8 +7,7 @@ import NavbarRoutes from "./NavbarRoutes";
 
 function Navbar() {
   return (
-    // TODO: add fixed-top
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <div className="container justify-content-between">
         <Link to={emptyRoute}>
           <img src={logo} alt="fresh cart logo" />
