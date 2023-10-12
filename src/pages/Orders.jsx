@@ -1,10 +1,10 @@
 import axios from "axios";
 import React from "react";
 import { useQuery } from "react-query";
-import { ordersUrl } from "../data/constants/network";
+import { ordersUrl } from "../constants//network";
 import { FallingLines } from "react-loader-spinner";
-import { mainColor } from "../data/constants/colors";
-import { tokenKey } from "../data/constants/storage_keys";
+import { mainColor } from "../constants//colors";
+import { tokenKey } from "../constants//storage_keys";
 import jwtDecode from "jwt-decode";
 
 function Orders() {

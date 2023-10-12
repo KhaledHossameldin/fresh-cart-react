@@ -7,12 +7,12 @@ import { useMutation } from "react-query";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { FallingLines } from "react-loader-spinner";
-import { mainColor } from "../data/constants/colors";
-import { ordersUrl } from "../data/constants/network";
-import { tokenKey } from "../data/constants/storage_keys";
+import { mainColor } from "../constants//colors";
+import { ordersUrl } from "../constants//network";
+import { tokenKey } from "../constants//storage_keys";
 import { cartContext } from "../context/cart";
 import { useNavigate } from "react-router-dom";
-import { emptyRoute } from "../data/constants/routes";
+import { emptyRoute } from "../constants//routes";
 
 function Payment() {
   const navigate = useNavigate();

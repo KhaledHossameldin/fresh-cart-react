@@ -14,7 +14,7 @@ import styles from "./HomeSlider.module.css";
 
 function HomeSlider() {
   return (
-    <section className="row g-0">
+    <section className={`row g-0 ${styles["margin-header"]}`}>
       <div className="col-md-8">
         <div>
           <Slider autoplay dots arrows={false}>

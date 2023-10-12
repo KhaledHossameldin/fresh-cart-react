@@ -1,11 +1,11 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 
-export const cartContext = createContext();
-
 import React from "react";
-import { cartUrl } from "../data/constants/network";
-import { tokenKey } from "../data/constants/storage_keys";
+import { cartUrl } from "../constants//network";
+import { tokenKey } from "../constants//storage_keys";
+
+export const cartContext = createContext();
 
 function CartProvider({ children }) {
   const [products, setProducts] = useState(null);

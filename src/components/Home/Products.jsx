@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useContext } from "react";
 import { useMutation, useQuery } from "react-query";
-import { productsUrl } from "../../data/constants/network";
+import { productsUrl } from "../../constants//network";
 import { FallingLines } from "react-loader-spinner";
-import { mainColor } from "../../data/constants/colors";
+import { mainColor } from "../../constants//colors";
 import { Link } from "react-router-dom";
-import { productDetailsRoute } from "../../data/constants/routes";
+import { productDetailsRoute } from "../../constants//routes";
 import { cartContext } from "../../context/cart";
 import toast from "react-hot-toast";
+import { wishlistContext } from "../../context/wishlist";
 
 function Products() {
   const {
@@ -17,6 +18,7 @@ function Products() {
   } = useQuery("products", () => axios.get(productsUrl));
 
   const { addProduct } = useContext(cartContext);
+  const { wishlist, toggle } = useContext(wishlistContext);
 
   const { mutate: add, isLoading: isAdding } = useMutation(
     (id) => addProduct(id),
@@ -74,7 +76,14 @@ function Products() {
                 >
                   + ADD
                 </button>
-                <i className="fa-solid fa-heart cursor-pointer"></i>
+                <i
+                  className={`fa-solid fa-heart cursor-pointer ${
+                    wishlist.map((item) => item._id).includes(product.id)
+                      ? "text-danger"
+                      : ""
+                  }`}
+                  onClick={() => toggle(product)}
+                ></i>
               </div>
             </div>
           </div>

@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { cartContext } from "../context/cart";
 import { FallingLines } from "react-loader-spinner";
-import { mainColor } from "../data/constants/colors";
+import { mainColor } from "../constants//colors";
 import { useMutation } from "react-query";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { paymentRoute } from "../data/constants/routes";
+import { paymentRoute } from "../constants//routes";
 
 function Cart() {
   const navigate = useNavigate();

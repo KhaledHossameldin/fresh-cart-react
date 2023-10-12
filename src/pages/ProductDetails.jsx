@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 import { blogImg1 } from "../assets/images";
 import Slider from "react-slick";
 import axios from "axios";
-import { productDetailsUrl } from "../data/constants/network";
+import { productDetailsUrl } from "../constants//network";
 import { useMutation, useQuery } from "react-query";
 import { FallingLines } from "react-loader-spinner";
-import { mainColor } from "../data/constants/colors";
+import { mainColor } from "../constants//colors";
 import { cartContext } from "../context/cart";
 import toast from "react-hot-toast";
 

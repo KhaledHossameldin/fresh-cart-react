@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { emptyRoute } from "../data/constants/routes";
+import { emptyRoute } from "../constants//routes";
 import { logo } from "../assets/images";
 import NavbarActions from "./NavbarActions";
 import NavbarRoutes from "./NavbarRoutes";
 
 function Navbar() {
   return (
-    // TODO: add fixed-top
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <div className="container justify-content-between">
         <Link to={emptyRoute}>
           <img src={logo} alt="fresh cart logo" />
