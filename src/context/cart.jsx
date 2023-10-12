@@ -11,6 +11,7 @@ function CartProvider({ children }) {
   const [products, setProducts] = useState(null);
   const [totalPrice, setTotalPrice] = useState(0);
   const [itemsCount, setItemsCount] = useState(0);
+  const [cartId, setCartId] = useState(null);
 
   useEffect(() => {
     getDetails().catch(() => {
@@ -40,6 +41,7 @@ function CartProvider({ children }) {
     setItemsCount(data.numOfCartItems);
     setTotalPrice(data.data.totalCartPrice);
     setProducts(data.data.products);
+    setCartId(data.data._id);
     return data;
   }
 
@@ -87,6 +89,7 @@ function CartProvider({ children }) {
         removeProduct,
         updateProductCount,
         clearCart,
+        cartId,
       }}
     >
       {children}

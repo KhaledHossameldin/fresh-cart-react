@@ -6,7 +6,7 @@ const email = Yup.string()
   .email("Must be a valid email");
 const phone = Yup.string()
   .required("Muster enter a phone number")
-  .matches(/^(\+2)?01[0125][0-9]{8}$/, "Must enter an Egyptian number");
+  .matches(/^(\+2)?01[0125][0-9]{8}$/, "Must enter a valid Egyptian number");
 const password = Yup.string()
   .required("Must enter a password")
   .min(6, "Must be at least 6 characters");
@@ -16,6 +16,8 @@ const rePassword = Yup.string()
 const verifyCode = Yup.string()
   .required("Must enter a verification code")
   .length(6, "Must enter a complete verification code");
+const details = Yup.string().required("Must enter details");
+const city = Yup.string().required("Must enter a city");
 
 export {
   name as nameSchema,
@@ -24,4 +26,6 @@ export {
   password as passwordSchema,
   rePassword as rePasswordSchema,
   verifyCode as verifyCodeSchema,
+  details as detailsSchema,
+  city as citySchema,
 };

@@ -10,8 +10,9 @@ import {
   emptyRoute,
   forgetPasswordRoute,
   loginRoute,
+  ordersRoute,
+  paymentRoute,
   productDetailsRoute,
-  productsRoute,
   registerRoute,
   resetPasswordRoute,
   verifyCodeRoute,
@@ -33,6 +34,8 @@ import { Toaster } from "react-hot-toast";
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
 import CartProvider from "./context/cart";
+import Payment from "./pages/Payment";
+import Orders from "./pages/Orders";
 
 const client = new QueryClient({});
 
@@ -71,14 +74,6 @@ const router = createHashRouter([
         ),
       },
       {
-        path: productsRoute,
-        element: (
-          <ProtectedRoute>
-            <h1>Products</h1>
-          </ProtectedRoute>
-        ),
-      },
-      {
         path: categoriesRoute,
         element: (
           <ProtectedRoute>
@@ -99,6 +94,22 @@ const router = createHashRouter([
         element: (
           <ProtectedRoute>
             <ProductDetails />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: paymentRoute,
+        element: (
+          <ProtectedRoute>
+            <Payment />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: ordersRoute,
+        element: (
+          <ProtectedRoute>
+            <Orders />
           </ProtectedRoute>
         ),
       },

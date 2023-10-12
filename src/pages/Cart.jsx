@@ -4,8 +4,11 @@ import { FallingLines } from "react-loader-spinner";
 import { mainColor } from "../data/constants/colors";
 import { useMutation } from "react-query";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { paymentRoute } from "../data/constants/routes";
 
 function Cart() {
+  const navigate = useNavigate();
   const {
     products,
     totalPrice,
@@ -45,7 +48,10 @@ function Cart() {
       <div className="container my-5">
         <div className="d-flex justify-content-between">
           <h2 className="fw-bold">Cart</h2>
-          <button className="btn btn-success" onClick={() => console.log("Create Order")}>
+          <button
+            className="btn btn-success"
+            onClick={() => navigate(paymentRoute)}
+          >
             Checkout
           </button>
         </div>
