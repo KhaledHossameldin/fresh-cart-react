@@ -41,8 +41,9 @@ function Brands() {
         <div className="row g-4">
           {response.data.data.map((brand, index) => (
             <div key={index} className="col-md-4">
-              <div className="d-flex justify-content-center align-items-center border rounded p-5">
-                {brand.name}
+              <div className="d-flex justify-content-center align-items-center border rounded p-5 flex-column product">
+                <img src={brand.image} alt={brand.name} className="img-fluid" />
+                <h4>{brand.name}</h4>
               </div>
             </div>
           ))}
