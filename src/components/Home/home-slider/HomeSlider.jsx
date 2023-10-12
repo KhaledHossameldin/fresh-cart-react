@@ -13,7 +13,6 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from "./HomeSlider.module.css";
 
 function HomeSlider() {
-  console.log(styles);
   return (
     <section className="row g-0">
       <div className="col-md-8">

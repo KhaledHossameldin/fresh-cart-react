@@ -6,9 +6,11 @@ const verifyCode = "/verify-code";
 const resetPassword = "/reset-password";
 const cart = "/cart";
 const wishlist = "/wishlist";
-const products = "/products";
 const categories = "/categories";
 const brands = "/brands";
+const productDetails = "/product-details";
+const payment = "/payment";
+const orders = "/allorders";
 
 export {
   empty as emptyRoute,
@@ -19,7 +21,9 @@ export {
   resetPassword as resetPasswordRoute,
   cart as cartRoute,
   wishlist as wishlistRoute,
-  products as productsRoute,
   categories as categoriesRoute,
   brands as brandsRoute,
+  productDetails as productDetailsRoute,
+  payment as paymentRoute,
+  orders as ordersRoute,
 };

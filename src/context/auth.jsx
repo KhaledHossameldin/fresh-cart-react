@@ -1,9 +1,7 @@
-import { createContext, useState } from "react";
+import React, { createContext, useState } from "react";
 import { tokenKey } from "../data/constants/storage_keys";
 
 export const authContext = createContext();
-
-import React from "react";
 
 function AuthProvider({ children }) {
   const [token, setToken] = useState(localStorage.getItem(tokenKey));

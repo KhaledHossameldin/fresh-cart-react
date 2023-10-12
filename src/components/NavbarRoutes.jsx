@@ -6,7 +6,7 @@ import {
   cartRoute,
   categoriesRoute,
   emptyRoute,
-  productsRoute,
+  ordersRoute,
   wishlistRoute,
 } from "../data/constants/routes";
 
@@ -33,11 +33,6 @@ function NavbarRoutes() {
         </NavLink>
       </li>
       <li className="nav-item">
-        <NavLink to={productsRoute} className="nav-link">
-          Products
-        </NavLink>
-      </li>
-      <li className="nav-item">
         <NavLink to={categoriesRoute} className="nav-link">
           Categories
         </NavLink>
@@ -45,6 +40,11 @@ function NavbarRoutes() {
       <li className="nav-item">
         <NavLink to={brandsRoute} className="nav-link">
           Brands
+        </NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink to={ordersRoute} className="nav-link">
+          Orders
         </NavLink>
       </li>
     </>

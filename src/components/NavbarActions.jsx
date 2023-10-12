@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { authContext } from "../context/auth";
-import { NavLink } from "react-router-dom";
-import { loginRoute, registerRoute } from "../data/constants/routes";
+import { Link, NavLink } from "react-router-dom";
+import { cartRoute, loginRoute, registerRoute } from "../data/constants/routes";
+import { cartContext } from "../context/cart";
 
 function NavbarActions() {
   const { token, logout } = useContext(authContext);
+  const { itemsCount } = useContext(cartContext);
   if (!token) {
     return (
       <>
@@ -25,10 +27,16 @@ function NavbarActions() {
     <>
       <li className="nav-item me-3 cursor-pointer">
         <div className="position-relative">
-          <i className="fa-solid fa-cart-shopping fa-lg"></i>
-          <span class="position-absolute top-0 lead-0 translate-middle badge rounded-pill bg-danger p-1">
-            9+
-          </span>
+          <Link to={cartRoute}>
+            <i className="fa-solid fa-cart-shopping fa-lg"></i>
+          </Link>
+          {itemsCount > 0 ? (
+            <span className="position-absolute top-0 lead-0 translate-middle badge rounded-pill bg-danger p-1">
+              {itemsCount < 10 ? itemsCount : "9+"}
+            </span>
+          ) : (
+            <></>
+          )}
         </div>
       </li>
       <li className="nav-item">

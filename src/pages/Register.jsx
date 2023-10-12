@@ -93,37 +93,37 @@ function Register() {
             error={formik.errors.phone}
             isTouched={formik.touched.phone ?? false}
           />
-          <div className="my-3">
-            <label htmlFor="password">Password :</label>
-            <input
-              id="password"
-              type="password"
-              name="password"
-              className="form-control mt-1"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            <ErrorLabel
-              error={formik.errors.password}
-              isTouched={formik.touched.password ?? false}
-              target={"Password"}
-            />
-          </div>
-          <div className="my-3">
-            <label htmlFor="rePassword">Confirm Password :</label>
-            <input
-              id="rePassword"
-              type="password"
-              name="rePassword"
-              className="form-control mt-1"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            <ErrorLabel
-              error={formik.errors.rePassword}
-              isTouched={formik.touched.rePassword ?? false}
-            />
-          </div>
+        </div>
+        <div className="my-3">
+          <label htmlFor="password">Password :</label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            className="form-control mt-1"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          <ErrorLabel
+            error={formik.errors.password}
+            isTouched={formik.touched.password ?? false}
+            target={"Password"}
+          />
+        </div>
+        <div className="my-3">
+          <label htmlFor="rePassword">Confirm Password :</label>
+          <input
+            id="rePassword"
+            type="password"
+            name="rePassword"
+            className="form-control mt-1"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          <ErrorLabel
+            error={formik.errors.rePassword}
+            isTouched={formik.touched.rePassword ?? false}
+          />
         </div>
         <div className="text-end">
           {isLoading ? (
