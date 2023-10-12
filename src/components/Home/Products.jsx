@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { useContext } from "react";
 import { useMutation, useQuery } from "react-query";
-import { productsUrl } from "../../data/constants/network";
+import { productsUrl } from "../../constants//network";
 import { FallingLines } from "react-loader-spinner";
-import { mainColor } from "../../data/constants/colors";
+import { mainColor } from "../../constants//colors";
 import { Link } from "react-router-dom";
-import { productDetailsRoute } from "../../data/constants/routes";
+import { productDetailsRoute } from "../../constants//routes";
 import { cartContext } from "../../context/cart";
 import toast from "react-hot-toast";
 

@@ -17,7 +17,7 @@ import {
   resetPasswordRoute,
   verifyCodeRoute,
   wishlistRoute,
-} from "./data/constants/routes";
+} from "./constants/routes";
 import { QueryClient, QueryClientProvider } from "react-query";
 import AuthProvider from "./context/auth";
 import ProtectedRoute from "./utils/ProtectedRoute";
@@ -36,6 +36,7 @@ import ProductDetails from "./pages/ProductDetails";
 import CartProvider from "./context/cart";
 import Payment from "./pages/Payment";
 import Orders from "./pages/Orders";
+import Brands from "./pages/Brands";
 
 const client = new QueryClient({});
 
@@ -85,7 +86,7 @@ const router = createHashRouter([
         path: brandsRoute,
         element: (
           <ProtectedRoute>
-            <h1>Brands</h1>
+            <Brands />
           </ProtectedRoute>
         ),
       },

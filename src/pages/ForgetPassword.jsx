@@ -7,10 +7,10 @@ import { ErrorLabel } from "../components";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "react-query";
 import axios from "axios";
-import { forgetPasswordUrl } from "../data/constants/network";
-import { verifyCodeRoute } from "../data/constants/routes";
+import { forgetPasswordUrl } from "../constants//network";
+import { verifyCodeRoute } from "../constants//routes";
 import { FallingLines } from "react-loader-spinner";
-import { mainColor } from "../data/constants/colors";
+import { mainColor } from "../constants//colors";
 
 function ForgetPassword() {
   const navigate = useNavigate();

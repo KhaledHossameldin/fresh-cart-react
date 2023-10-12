@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { authContext } from "../context/auth";
 import { Navigate } from "react-router-dom";
-import { loginRoute } from "../data/constants/routes";
+import { loginRoute } from "../constants//routes";
 
 function ProtectedRoute({ children }) {
   const { token } = useContext(authContext);

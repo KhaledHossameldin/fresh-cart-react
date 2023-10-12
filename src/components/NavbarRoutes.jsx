@@ -8,7 +8,7 @@ import {
   emptyRoute,
   ordersRoute,
   wishlistRoute,
-} from "../data/constants/routes";
+} from "../constants//routes";
 
 function NavbarRoutes() {
   const { token } = useContext(authContext);

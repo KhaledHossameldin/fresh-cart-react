@@ -7,11 +7,11 @@ import { object } from "yup";
 import { emailSchema, passwordSchema } from "../utils/validators";
 import toast, { Toaster } from "react-hot-toast";
 import { ErrorLabel } from "../components";
-import { emptyRoute, forgetPasswordRoute } from "../data/constants/routes";
+import { emptyRoute, forgetPasswordRoute } from "../constants//routes";
 import { FallingLines } from "react-loader-spinner";
-import { mainColor } from "../data/constants/colors";
+import { mainColor } from "../constants//colors";
 import axios from "axios";
-import { loginUrl } from "../data/constants/network";
+import { loginUrl } from "../constants//network";
 
 function Login() {
   const navigate = useNavigate();

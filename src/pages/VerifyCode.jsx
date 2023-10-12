@@ -4,11 +4,11 @@ import { useFormik } from "formik";
 import ErrorLabel from "../components/ErrorLabel";
 import { useMutation } from "react-query";
 import axios from "axios";
-import { verifyCodeUrl } from "../data/constants/network";
+import { verifyCodeUrl } from "../constants//network";
 import { useNavigate } from "react-router-dom";
-import { resetPasswordRoute } from "../data/constants/routes";
+import { resetPasswordRoute } from "../constants//routes";
 import { FallingLines } from "react-loader-spinner";
-import { mainColor } from "../data/constants/colors";
+import { mainColor } from "../constants//colors";
 import { verifyCodeSchema } from "../utils/validators";
 import { object } from "yup";
 

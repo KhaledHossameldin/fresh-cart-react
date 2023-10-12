@@ -1,9 +1,9 @@
 import axios from "axios";
 import React from "react";
 import { useQuery } from "react-query";
-import { categoriesUrl } from "../../../data/constants/network";
+import { categoriesUrl } from "../../../constants//network";
 import { FallingLines } from "react-loader-spinner";
-import { mainColor } from "../../../data/constants/colors";
+import { mainColor } from "../../../constants//colors";
 import Slider from "react-slick";
 
 import styles from "./CategoriesSlider.module.css";

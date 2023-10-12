@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { emptyRoute } from "../data/constants/routes";
+import { emptyRoute } from "../constants//routes";
 import { logo } from "../assets/images";
 import NavbarActions from "./NavbarActions";
 import NavbarRoutes from "./NavbarRoutes";

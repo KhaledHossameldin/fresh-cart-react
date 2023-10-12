@@ -13,9 +13,9 @@ import ErrorLabel from "../components/ErrorLabel";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "react-query";
 import axios from "axios";
-import { registerUrl } from "../data/constants/network";
-import { loginRoute } from "../data/constants/routes";
-import { mainColor } from "../data/constants/colors";
+import { registerUrl } from "../constants//network";
+import { loginRoute } from "../constants//routes";
+import { mainColor } from "../constants//colors";
 import { FallingLines } from "react-loader-spinner";
 
 function Register() {
