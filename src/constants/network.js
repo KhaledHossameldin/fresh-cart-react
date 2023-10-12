@@ -9,6 +9,7 @@ const products = `${baseUrl}/api/v1/products`;
 const cart = `${baseUrl}/api/v1/cart`;
 const orders = `${baseUrl}/api/v1/orders`;
 const brands = `${baseUrl}/api/v1/brands`;
+const wishlist = `${baseUrl}/api/v1/wishlist`;
 
 const productDetails = (id) => `${baseUrl}/api/v1/products/${id}`;
 
@@ -23,5 +24,6 @@ export {
   cart as cartUrl,
   orders as ordersUrl,
   brands as brandsUrl,
+  wishlist as wishlistUrl,
   productDetails as productDetailsUrl,
 };

@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { productDetailsRoute } from "../../constants//routes";
 import { cartContext } from "../../context/cart";
 import toast from "react-hot-toast";
+import { wishlistContext } from "../../context/wishlist";
 
 function Products() {
   const {
@@ -17,6 +18,7 @@ function Products() {
   } = useQuery("products", () => axios.get(productsUrl));
 
   const { addProduct } = useContext(cartContext);
+  const { wishlist, toggle } = useContext(wishlistContext);
 
   const { mutate: add, isLoading: isAdding } = useMutation(
     (id) => addProduct(id),
@@ -74,7 +76,14 @@ function Products() {
                 >
                   + ADD
                 </button>
-                <i className="fa-solid fa-heart cursor-pointer"></i>
+                <i
+                  className={`fa-solid fa-heart cursor-pointer ${
+                    wishlist.map((item) => item._id).includes(product.id)
+                      ? "text-danger"
+                      : ""
+                  }`}
+                  onClick={() => toggle(product)}
+                ></i>
               </div>
             </div>
           </div>

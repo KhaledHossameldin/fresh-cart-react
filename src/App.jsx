@@ -37,6 +37,9 @@ import CartProvider from "./context/cart";
 import Payment from "./pages/Payment";
 import Orders from "./pages/Orders";
 import Brands from "./pages/Brands";
+import WishlistProvider from "./context/wishlist";
+import Wishlist from "./pages/Wishlist";
+import Categories from "./pages/Categories";
 
 const client = new QueryClient({});
 
@@ -70,7 +73,7 @@ const router = createHashRouter([
         path: wishlistRoute,
         element: (
           <ProtectedRoute>
-            <h1>Wishlist</h1>
+            <Wishlist />
           </ProtectedRoute>
         ),
       },
@@ -78,7 +81,7 @@ const router = createHashRouter([
         path: categoriesRoute,
         element: (
           <ProtectedRoute>
-            <h1>Categories</h1>
+            <Categories />
           </ProtectedRoute>
         ),
       },
@@ -124,7 +127,9 @@ function App() {
       <QueryClientProvider client={client}>
         <AuthProvider>
           <CartProvider>
-            <RouterProvider router={router} />
+            <WishlistProvider>
+              <RouterProvider router={router} />
+            </WishlistProvider>
           </CartProvider>
         </AuthProvider>
       </QueryClientProvider>
