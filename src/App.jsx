@@ -23,6 +23,7 @@ import AuthProvider from "./context/auth";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import {
   Cart,
+  Error,
   ForgetPassword,
   Login,
   Register,
@@ -117,6 +118,7 @@ const router = createHashRouter([
           </ProtectedRoute>
         ),
       },
+      { path: "*", element: <Error /> },
     ],
   },
 ]);
